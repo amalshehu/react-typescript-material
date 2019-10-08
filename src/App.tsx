@@ -1,12 +1,13 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import { LoginForm } from './LoginForm';
 
 const App: React.FC = () => {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+        {/* <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
         </p>
@@ -17,10 +18,15 @@ const App: React.FC = () => {
           rel="noopener noreferrer"
         >
           Learn React
-        </a>
+        </a> */}
+        <LoginForm
+          onSubmit={({ firstName, lastName, email }) => {
+            console.log(firstName, lastName, email);
+          }}
+        ></LoginForm>
       </header>
     </div>
   );
-}
+};
 
 export default App;
