@@ -1,8 +1,8 @@
 import * as React from 'react';
-import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
-import { Formik, Form } from 'formik';
+import { Formik, Form, Field } from 'formik';
 import './LoginForm.css';
+import { InputField } from './InputField';
 
 interface Fields {
   firstName: string;
@@ -21,42 +21,37 @@ export const LoginForm: React.FC<Props> = ({ onSubmit }) => {
         onSubmit(values);
       }}
     >
-      {({ values, handleBlur, handleChange }) => (
+      {() => (
         <Form>
           <div>
-            <TextField
+            <Field
               placeholder="FirstName"
-              onBlur={handleBlur}
-              className="text-color"
-              onChange={handleChange}
               name="firstName"
-              value={values.firstName}
-            ></TextField>
+              component={InputField}
+            ></Field>
           </div>
           <div>
-            <TextField
-              onBlur={handleBlur}
-              onChange={handleChange}
-              className="text-color"
+            <Field
               placeholder="LastName"
               name="lastName"
-              value={values.lastName}
-            ></TextField>
+              component={InputField}
+            ></Field>
           </div>
           <div>
-            <TextField
-              onBlur={handleBlur}
-              onChange={handleChange}
+            <Field
               placeholder="Email"
-              className="text-color"
               name="email"
-              value={values.email}
-            ></TextField>
+              component={InputField}
+            ></Field>
           </div>
-          <Button type="submit" variant="contained">
-            submit
+          <Button
+            color="primary"
+            className="submit"
+            type="submit"
+            variant="contained"
+          >
+            Login
           </Button>
-          <pre>{JSON.stringify(values, null, 2)}</pre>
         </Form>
       )}
     </Formik>
