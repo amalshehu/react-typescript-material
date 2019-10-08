@@ -1,5 +1,3 @@
-.text-color {
-  background-color: rgb(228, 228, 228);
-  color: rgb(231, 96, 46);
-  width: 400px;
+.submit {
+  top: 25px;
 }
